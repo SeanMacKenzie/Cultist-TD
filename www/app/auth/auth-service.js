@@ -1,8 +1,9 @@
 function AuthService() {
-    var baseUrl = 'http://localhost:3000/'
+    var production = !window.location.host.includes('localhost');
+    var baseUrl = production ? '//cultistproto.herokuapp.com' : '//localhost:3000';
 
     var auth = axios.create({
-        baseURL: 'http://localhost:3000/',
+        baseURL: baseUrl,
         timeout: 2000,
         withCredentials: true
     })
